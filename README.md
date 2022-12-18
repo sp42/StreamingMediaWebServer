@@ -1,0 +1,2 @@
+# StreamingMediaWebServer
+一款极简的流媒体Web服务器，提供视频音乐的在线播放功能
