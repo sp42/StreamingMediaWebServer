@@ -110,19 +110,20 @@
         <%-- List的遍历 --%>
         <c:forEach items="${entry.value}" var="name" varStatus="varSta">
             <c:choose>
-                <c:when test="${!empty mode && mode == 'list' }"> <%-- else if 的意思 --%>
-                    <p>No.${varSta.count}
-                        <a href="delete.jsp?dir=${entry.key}&name=${name}"><b>删除</b></a>
-                        <a href="rename.jsp?dir=${entry.key}&name=${name}"><b>重命名</b></a>
-                        <a target="_blank" href="/media/${entry.key}/${name}">${name}</a>
-                    </p>
-                </c:when>
-        
-                <c:otherwise> <%-- else的意思 --%>
-                    <!-- 视频的高度、宽度是按照1920*1080同比例缩小 -->
-                    <video src="/media/${entry.key}/${name}" width="384px" height="216px" controls preload="auto"></video>
-                </c:otherwise>
-            </c:choose>
+            <c:when test="${!empty mode && mode == 'view' }"> <%-- else if 的意思 --%>
+               <!-- 视频的高度、宽度是按照1920*1080同比例缩小 -->
+               <video src="/media/${entry.key}/${name}" width="384px" height="216px" controls preload="none"></video>
+               <!-- 不预加载视频而展示视频图片 https://blog.csdn.net/qq_44173499/article/details/123151022 -->
+            </c:when>
+
+            <c:otherwise> <%-- else的意思 --%>
+                <p>No.${varSta.count}
+                   <a href="delete.jsp?dir=${entry.key}&name=${name}"><b>删除</b></a>
+                   <a href="rename.jsp?dir=${entry.key}&name=${name}"><b>重命名</b></a>
+                   <a target="_blank" href="/media/${entry.key}/${name}">${name}</a>
+                </p>
+            </c:otherwise>
+          </c:choose>
         </c:forEach>
     </c:forEach>
 
