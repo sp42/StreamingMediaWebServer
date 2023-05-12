@@ -24,6 +24,22 @@
     <meta name="copyright" content="Copy Right: 2022 HACKYLE. All rights reserved">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Home - Streaming Media Web Server</title>
+    <style type="text/css">
+      /*回到顶部*/
+      #backToTopBtn {
+        z-index: 99;
+        width: 40px;
+        background-repeat: no-repeat;
+        background-position:center;
+        position: fixed;
+        bottom: 5%;
+        right: 2%;
+        cursor: pointer;
+        display: block;
+        color: red;
+        font-size: larger;
+      }
+    </style>
 </head>
 <body>
 
@@ -98,6 +114,12 @@
     pageContext.setAttribute("mode", mode);
     %>
 
+    <!-- 在本页面，根据关键字进行搜索 -->
+    <div>
+      <input type="text" placeholder="请输入关键字，不支持分词搜索" size="25" id="searchInput">
+      <button type="button" id="searchBtn">搜索</button>
+    </div>
+
     <div>
         Total：${mp4FileCount} 
         &emsp;&emsp; <a href="index.jsp?mode=list"> 列表模式 </a>
@@ -127,5 +149,38 @@
         </c:forEach>
     </c:forEach>
 
+    <div id="backToTopBtn" title="回到顶部" onclick="topFunction()">TOP</div>
+
 </body>
+<script type="text/javascript">
+    document.getElementById("searchBtn").onclick = function () {
+      console.log(document.getElementById("searchInput"))
+      console.log(document.getElementById("searchInput").value)
+
+      toFind(document.getElementById("searchInput").value)
+    }
+    function toFind(keyword) {
+        if(keyword === null || keyword === '' || keyword === undefined) {
+            return
+        }
+
+        //模拟调用浏览器的Ctrl+F查找功能
+        //https://developer.mozilla.org/zh-CN/docs/Web/API/Window/find
+        // window.find(aString, aCaseSensitive, aBackwards, aWrapAround,
+        //     aWholeWord, aSearchInFrames, aShowDialog);
+        // aString：将要搜索的字符串
+        // aCaseSensitive：布尔值，如果为true,表示搜索是区分大小写的。
+        // aBackwards：布尔值。如果为true, 表示搜索方向为向上搜索。
+        // aWrapAround：布尔值。如果为true, 表示为循环搜索。
+        window.find(keyword, false, false, true)
+    }
+
+    /**
+     * 回到顶部
+     */
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
 </html>

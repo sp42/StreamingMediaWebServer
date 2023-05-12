@@ -159,20 +159,22 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 # 部署
 
 1. 下载源码包：https://github.com/HackyleShawe/StreamingMediaWebServer
-
 2. 将其解压，重命名为一个简单的名字，我重命名为：ms，意为Media Server
-
 3. 复制ms到到%Tomcat%/webapps/
 ![](img/conf-03.png)
+4. 编辑Tomcat的配置文件（conf/server.xml），指定静态资源文件的映射地址与资源目录。目的是让请求解析到对应目录下的视频资源文件
 
-4. 编辑WEB-INF/config.properties文件，指定为在配置Tomcat事conf/server.xml中指定静态资源的目录，也即docBase的值
-![](img/conf-04.png)
+![](img/conf-03-01.png)
+
+5. 编辑项目配置文件：WEB-INF/config.properties文件，指定媒体资源的目录。目的是让本应用程序找到媒体资源的位置
+   ![](img/conf-04.png)
 
 > 注意格式：Linux、Windows平台都使用正斜杠的方式
 
-5. 启动Tomcat，指定%Tomcat%/bin/shartup.bat
-6. 访问项目：http://localhost:8080/ms/
-![](img/conf-05.png)
+6. 启动Tomcat，指定%Tomcat%/bin/shartup.bat
+
+7. 访问项目：http://localhost:8080/ms/
+   ![](img/conf-05.png)
 
 > 首次访问示意图
 
