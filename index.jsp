@@ -107,13 +107,6 @@
     }
     %>
 
-    <%
-    //入参检查
-    String mode = request.getParameter("mode"); //文件预览模式
-
-    pageContext.setAttribute("mode", mode);
-    %>
-
     <!-- 在本页面，根据关键字进行搜索 -->
     <div>
       <input type="text" placeholder="请输入关键字，不支持分词搜索" size="25" id="searchInput">
@@ -122,8 +115,6 @@
 
     <div>
         Total：${mp4FileCount} 
-        &emsp;&emsp; <a href="index.jsp?mode=list"> 列表模式 </a>
-        &emsp;&emsp; <a href="index.jsp?mode=view"> 宫格模式 </a>
     </div>
 
     <%-- Map的遍历 --%>
@@ -131,21 +122,11 @@
         <h3>${entry.key}</h3>
         <%-- List的遍历 --%>
         <c:forEach items="${entry.value}" var="name" varStatus="varSta">
-            <c:choose>
-            <c:when test="${!empty mode && mode == 'view' }"> <%-- else if 的意思 --%>
-               <!-- 视频的高度、宽度是按照1920*1080同比例缩小 -->
-               <video src="/media/${entry.key}/${name}" width="384px" height="216px" controls preload="none"></video>
-               <!-- 不预加载视频而展示视频图片 https://blog.csdn.net/qq_44173499/article/details/123151022 -->
-            </c:when>
-
-            <c:otherwise> <%-- else的意思 --%>
-                <p>No.${varSta.count}
-                   <a href="delete.jsp?dir=${entry.key}&name=${name}"><b>删除</b></a>
-                   <a href="rename.jsp?dir=${entry.key}&name=${name}"><b>重命名</b></a>
-                   <a target="_blank" href="/media/${entry.key}/${name}">${name}</a>
-                </p>
-            </c:otherwise>
-          </c:choose>
+            <p>No.${varSta.count}
+               <a href="delete.jsp?dir=${entry.key}&name=${name}"><b>删除</b></a>
+               <a href="rename.jsp?dir=${entry.key}&name=${name}"><b>重命名</b></a>
+               <a target="_blank" href="/media${entry.key}/${name}">${name}</a>
+            </p>
         </c:forEach>
     </c:forEach>
 
