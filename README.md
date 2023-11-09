@@ -39,11 +39,7 @@
 **列表模式下重命名文件**
 ![](img/feat-03.png)
 
-**宫格模式**
-![](img/feat-04.png)
-
-**宫格模式下的实时播放**
-![](img/feat-05.png)
+****
 
 # 环境检查与配置
 
@@ -174,7 +170,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 6. 启动Tomcat，指定%Tomcat%/bin/shartup.bat
 
 7. 访问项目：http://localhost:8080/ms/
-   ![](img/conf-05.png)
+   ![](img/feat-01.png)
 
 > 首次访问示意图
 

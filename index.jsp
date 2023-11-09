@@ -17,7 +17,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="rebot" content="all">
+    <meta name="robots" content="all">
     <meta name="author" content="Hackyle; Kyle Shawe">
     <meta name="reply-to" content="kyleshawe@outlook.com;1617358182@qq.com">
     <meta name="generator" content="Sublime Text 3; VSCode">
@@ -111,6 +111,9 @@
     <div>
       <input type="text" placeholder="请输入关键字，不支持分词搜索" size="25" id="searchInput">
       <button type="button" id="searchBtn">搜索</button>
+
+      &emsp;&emsp;<a href="shutdown.jsp"><b>--关机--</b></a>
+      <!-- <a href="shutdown.jsp?control=cancel"><b>--取消关机--</b></a> -->
     </div>
 
     <div>

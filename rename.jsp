@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="rebot" content="all">
+    <meta name="robots" content="all">
     <meta name="author" content="Hackyle; Kyle Shawe">
     <meta name="reply-to" content="kyleshawe@outlook.com;1617358182@qq.com">
     <meta name="generator" content="Sublime Text 3; VSCode">
