@@ -1,4 +1,5 @@
 **Streaming Media Web Server**
+https://blog.hackyle.com/article/project/streaming-media-web-server
 
 - 一款极简的流媒体Web服务器，提供视频音乐的在线播放功能
 - A extremely simple web server of streaming media, which can provide online play of video and audio
@@ -10,7 +11,7 @@
 - 类似NAS（Network Attached Storage，网络附属存储）一样，搭建一个局域网私有视频云服务器
 - 本项目的核心目的是做一个类似于**视频NAS**，可以**在局域网下提供视频音乐、在线观看服务**
 
- **市场上已有的局域网流媒体播放器平台**
+**市场上已有的局域网流媒体播放器平台**
 
 - flex：收费
 
@@ -18,18 +19,17 @@
 
 - emby：收费；可用性还行
 
-
-
 **Features**
 
 - 以文件夹为单位，递归**收集**指定目录下的**所有文件**
 - 虽然可收集所有类型的文件，但目前只可以**在线观看视频、音乐**，其他类型文件赞不支在线观看
 - 视频**文件的两种预览模式**
-  - 列表模式：依次展示每个文件夹下的所有文件
-  - 宫格模式：以384px * 216px（是1920*1080的同比缩放）的格式展示视频、音乐文件
+    - 列表模式：依次展示每个文件夹下的所有文件
+    - 宫格模式：以384px * 216px（是1920*1080的同比缩放）的格式展示视频、音乐文件
 - 文件管理：**文件删除、文件重命名**
 
 # 快速预览
+
 **列表模式**
 ![](img/feat-01.png)
 
@@ -69,13 +69,13 @@ export LANG=en_US.UTF-8
 
 export LANGUAGE=en_US.UTF-8
 
- 使生效：
+使生效：
 
 source .bashrc
 
 source .profile
 
- 再检查：
+再检查：
 
 ![](img/con-02.png)
 
@@ -131,13 +131,9 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 - 解压后将文件夹名字改短一点，方便以后使用：mv apache-tomcat-9.0.54 tomcat9
 
- **修改配置文件conf/server.xml，自定义端口和URI编码为UTF-8：**
+**修改配置文件conf/server.xml，自定义端口和URI编码为UTF-8：**
 
 ![](img/con-06.png)
-
-
-
-
 
 ## 配置Tomcat
 
@@ -149,7 +145,6 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 **docBase** 指定的目录是视频文件的存放地点
 
-
 ![](img/conf-02.png)
 
 # 部署
@@ -157,7 +152,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 1. 下载源码包：https://github.com/HackyleShawe/StreamingMediaWebServer
 2. 将其解压，重命名为一个简单的名字，我重命名为：ms，意为Media Server
 3. 复制ms到到%Tomcat%/webapps/
-![](img/conf-03.png)
+   ![](img/conf-03.png)
 4. 编辑Tomcat的配置文件（conf/server.xml），指定静态资源文件的映射地址与资源目录。目的是让请求解析到对应目录下的视频资源文件
 
 ![](img/conf-03-01.png)
